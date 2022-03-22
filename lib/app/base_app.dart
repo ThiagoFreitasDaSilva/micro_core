@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:micro_core/app/micro_app.dart';
 import 'package:micro_core/micro_core.dart';
 
 abstract class BaseAPP {
@@ -25,5 +24,13 @@ abstract class BaseAPP {
 
     return MaterialPageRoute(
         builder: (context) => navigateTo.call(context, routeArgs));
+  }
+
+  void registerListeners() {
+    if (microAPPs.isNotEmpty) {
+      for (MicroAPP microApp in microAPPs) {
+        microApp.createListener();
+      }
+    }
   }
 }

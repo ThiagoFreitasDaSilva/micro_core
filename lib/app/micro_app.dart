@@ -5,4 +5,6 @@ abstract class MicroAPP {
   String get microAPPName;
 
   Map<String, WidgetBuilderArgs> get routes;
+
+  void Function() get createListener;
 }
